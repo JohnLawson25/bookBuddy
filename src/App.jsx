@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import BookList from "./Books/BookList";
+import SingleBook from "./Books/SIngleBook";
+import NavBar from "./Layout/NavBar";
 import axios from "axios"
 //import {route, routes} from "react-router"
 
@@ -8,7 +10,7 @@ const API = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api";
 
 function App() {
 const [Books, setBooks] = useState([]);
-
+const [selectedBook, setSelectedBook] = useState()
 
 useEffect(() => {
   const getBookList = async() => {
@@ -59,7 +61,10 @@ getBookList();
         Don't forget that our URL should dictate our view! Set up React Router to navigate between
         the different views of your single page application!
       </p>
+      <NavBar />
       <BookList Books={Books}/>
+      <hr/>
+      <SingleBook setSelectedBook={setSelectedBook} />
     </div>
   );
 }

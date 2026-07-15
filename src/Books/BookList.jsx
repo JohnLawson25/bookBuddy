@@ -7,7 +7,7 @@ const BookList = ({Books}) => {
             {"Johnny's Books"}
             {Books.map((book) => {
                 return(
-                    <div>
+                    <div key={book.id}>
                         <p>{book.title}</p>
                     </div> 
                 )

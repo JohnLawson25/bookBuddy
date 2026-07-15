@@ -1,6 +1,10 @@
 const NavBar = () => {
     return(
-        <h1> Hi John</h1>
+        <nav>
+            <h1> Hi John</h1>
+            <a>Home</a>
+        </nav>
+        
     )
 };
 

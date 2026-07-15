@@ -1,17 +1,22 @@
 import axios from "axios"
 
-const API = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api"
-
-const getBookList = async() => {
-    const {data} = await axios.get(API + "/books")
-    console.log(data)
-
+const BookList = ({Books}) => {
+    
     return(
-        
+        <div>
+            {"Johnny's Books"}
+            {Books.map((book) => {
+                return(
+                    <div>
+                        <p>{book.title}</p>
+                    </div> 
+                )
+            })}
+        </div>
     )
 };
 
-getBookList()
 
-export default getBookList
 
+export default BookList
+ 

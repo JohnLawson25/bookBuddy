@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
-import getBookList from "./Books/BookList";
+import BookList from "./Books/BookList";
 import axios from "axios"
-import {route, routes} from "react-router"
+//import {route, routes} from "react-router"
 
 const API = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api";
 
 
 function App() {
-const [Books, setBooks] = useState([])l
+const [Books, setBooks] = useState([]);
 
 
 useEffect(() => {
   const getBookList = async() => {
     try{
     const {data} = await axios.get(API + "/books")
-    //console.log(data)
+    console.log(data)
     setBooks(data);
     }
     catch(error){
@@ -59,6 +59,7 @@ getBookList();
         Don't forget that our URL should dictate our view! Set up React Router to navigate between
         the different views of your single page application!
       </p>
+      <BookList Books={Books}/>
     </div>
   );
 }

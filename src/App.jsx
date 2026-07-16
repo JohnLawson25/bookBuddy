@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import BookList from "./Books/BookList";
 import SingleBook from "./Books/SIngleBook";
 import NavBar from "./Layout/NavBar";
+import ProfilePage from "./Auth/Profile";
+import Login from "./Auth/Login";
+import Register from "./Auth/Register";
 import axios from "axios"
 //import {route, routes} from "react-router"
 
@@ -10,7 +13,8 @@ const API = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api";
 
 function App() {
 const [Books, setBooks] = useState([]);
-const [selectedBook, setSelectedBook] = useState()
+const [selectedBook, setSelectedBook] = useState();
+const [userReservations, setUserReservations] = useState([]);
 
 useEffect(() => {
   const getBookList = async() => {
@@ -62,6 +66,9 @@ getBookList();
         the different views of your single page application!
       </p>
       <NavBar />
+      <ProfilePage userReservations={userReservations} setUserReservations={setUserReservations}}/>
+      <Login />
+      <Register />
       <BookList Books={Books}/>
       <hr/>
       <SingleBook setSelectedBook={setSelectedBook} />

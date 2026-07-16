@@ -34,7 +34,7 @@ const Login = () => {
                 <button type="submit">Login</button>
             </form>
             <div>
-                {error === 401 ? <p>Incorrect Credentails</p> : null }
+                error text
             </div>
         </div>
 
@@ -42,3 +42,5 @@ const Login = () => {
 };
 
 export default Login;
+
+//{error === 401 ? <p>Incorrect Credentails</p> : null }

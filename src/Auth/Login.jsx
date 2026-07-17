@@ -7,17 +7,19 @@ const Login = ({authenticate, error, setError}) => {
 
 
     const login = async(formData) => {
-        const username = formData.get("Username");
+        const email = formData.get("Email");
         const password = formData.get("Password");
 
     const user = {
-        username,
+        email,
         password
     };
+    
     try {
-        const { data } = await axios.post(APILink + user)
+        const { data } = await axios.post("https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/login", user)
+        console.log(data)
         window.localStorage.setItem("token", data.token )
-        authenticate();
+        //authenticate();
         navigate("/")
     } catch (error) {
         console.error(error)
@@ -29,8 +31,8 @@ const Login = ({authenticate, error, setError}) => {
             <h4>Please log in</h4>
             <form action={login}>
                 <label>
-                    Username: 
-                <input type="text" name="Username" />
+                    Email: 
+                <input type="email" name="Email" />
                 </label>
                 <label>
                     Password: 

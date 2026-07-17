@@ -3,7 +3,6 @@ import {NavLink} from "react-router"
 const NavBar = () => {
     return(
         <nav>
-            <h1> Hi John</h1>
             <NavLink to="/">Home</NavLink>
             {UserActivation.id ? (<span>
             <NavLink to="/ProfilePage">Profile</NavLink>

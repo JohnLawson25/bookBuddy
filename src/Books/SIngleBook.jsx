@@ -1,8 +1,11 @@
+import {useParams} from "react-router"
+
 const SingleBook = ({Books}) => {
-    
+    const { id } = useParams();    
+
     const singleBook = Books.find((book) => {
-        return book.id === 23
-     ;  //replace 1 with book id we want
+        return book.id === (id * 1)
+     ;  
     });
     if(!singleBook){
         return <h2>Loading...</h2>

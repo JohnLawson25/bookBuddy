@@ -34,6 +34,21 @@ getBookList();
 }, [])
 
 
+const authenticate = async() => {
+  try {
+    const { data } = await axios.get("https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/me", {
+      headers: {
+        "Authorization" : `${window.localStorage.getItem("token")}`
+      }
+    });
+    setUser(data);
+    console.log(user)
+
+  } catch (error) {
+    console.error(error)
+  }
+}
+
   return (
     <div>
       <h1>
@@ -42,21 +57,20 @@ getBookList();
       </h1>
     
       
-      //Implement Routes
+      {/*Implement Routes*/}
       <Routes>
         <Route element={<Layout />} >
-        <Route index element={<BookList Books={Books}/>} />
-        <Route path="/BookList" element={<BookList Books={Books}/>} />
-        <Route path="/GameList/:id"  /> 
-          <Route path="/Login" element={<Login />}   />
+        <Route index element={<BookList Books={Books} setSelectedBook={setSelectedBook}/>} />
+          <Route path="/Login" element={<Login authenticate={authenticate} />}   />
           <Route path="/AboutMe" element={<ProfilePage user={user} userReservations={userReservations} setUserReservations={setUserReservations} />} />
-          <Route path="/Register" element={<Register  />} />            
+          <Route path="/Register" element={<Register  />} />  
+          <Route path="/BookList/:id" element={<SingleBook Books={Books}  />} />           
           <Route path="*" element={<Error404 />} />
      
         </Route>
       </Routes>
       <hr/>
-      <SingleBook Books={Books} setSelectedBook={setSelectedBook} />
+      
     </div>
   );
 }

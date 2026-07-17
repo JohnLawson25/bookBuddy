@@ -1,7 +1,10 @@
 import axios from "axios"
+import { useNavigate } from "react-router"
 const APILink = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api"
 
-const Login = () => {
+const Login = ({authenticate, error, setError}) => {
+    const navigate = useNavigate();
+
 
     const login = async(formData) => {
         const username = formData.get("Username");
@@ -13,7 +16,9 @@ const Login = () => {
     };
     try {
         const { data } = await axios.post(APILink + user)
-        window.localStorage.setItem("token")
+        window.localStorage.setItem("token", data.token )
+        authenticate();
+        navigate("/")
     } catch (error) {
         console.error(error)
     }

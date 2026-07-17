@@ -1,10 +1,10 @@
 import {Outlet} from "react-router"
 import NavBar from "./NavBar";
 
-const Layout = () => {
+const Layout = ({user}) => {
     return(
         <span>
-            <NavBar />
+            <NavBar user={user} />
             <div>
                 <Outlet />
             </div>

@@ -21,9 +21,10 @@ const returnBook = async ({ userReservations, setUserReservations}) => {
 const ProfilePage = ({user, userReservations}) => {
     return(
         <div>
-            <h4>john's Profile:</h4>
-            <p>username: </p>
-            <p>user ID:</p>
+            <h2>Profile:</h2>
+            <h4>{user.firstname} {user.lastname}</h4>
+            <h4>{user.email}</h4>
+            
             <hr/>
             <h5>Reserved Books:</h5>
                 {userReservations.length > 0 ? (<div>

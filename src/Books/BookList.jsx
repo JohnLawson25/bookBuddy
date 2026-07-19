@@ -28,7 +28,7 @@ const checkReserve = (id) => {
                 return(
                     <div key={book.id} className="container" onClick={() => {setSelectedBook(book); console.log(typeof(book.id))}}>
                         <h3>
-                        <NavLink classNAme="title" to={`/BookList/${book.id}`}>{book.title}</NavLink>
+                        <NavLink className="title" to={`/BookList/${book.id}`}>{book.title}</NavLink>
                         </h3>
                         <h5 className="author">{book.author}</h5>
                         <p className="description">{book.description}</p>

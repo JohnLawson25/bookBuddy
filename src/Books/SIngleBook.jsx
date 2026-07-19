@@ -3,7 +3,6 @@ import {useParams} from "react-router"
 
 const SingleBook = ({user, Books, selectedBook, userReservations,  setUserReservations}) => {
     const { id } = useParams();    
-    console.log(user)
     const singleBook = Books.find((book) => {
         return book.id === (id * 1)
      ;  
@@ -25,6 +24,7 @@ const SingleBook = ({user, Books, selectedBook, userReservations,  setUserReserv
             )
             
         setUserReservations([...userReservations, data])
+        
     } catch (error) {
         console.error(error);
     }

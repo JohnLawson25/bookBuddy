@@ -47,5 +47,21 @@ grid-column: 2 / 3;
   overflow: hidden;
 }
 
+.NavBar{
+  display: flex;
+  background-color: deepskyblue;
+ margin-bottom: 30px;
+ font-size: 16pt;
+ font-weight: bold;
+}
+.Nav1{
+  margin-left: 20px;
+  
+}
+
+.Nav2{
+  margin-left: 20px;
+}
+
 
 /* Add your own custom styles here */

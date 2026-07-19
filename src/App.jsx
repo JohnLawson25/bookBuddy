@@ -59,6 +59,25 @@ useEffect(() => {
   checkToken();
 }, [user.id]);
 
+
+useEffect(() => {
+  const getUserReservations = async () => {
+    if (!user.id) return; // wait until we actually have a user
+    try {
+      const { data } = await axios.get("https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/reservations", {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`
+        }
+      });
+      setUserReservations(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  getUserReservations();
+}, [user.id]);
+
+
   return (
     <div>
       <h1>

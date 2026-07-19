@@ -65,10 +65,3 @@ const ProfilePage = ({user, Books, userReservations, setUserReservations}) => {
 };
 export default ProfilePage;
 
-/*<h5>Reserved Books:</h5>
-                {userReservations.length > 0 ? (<div>
-                    {userReservations.map((res) => {
-                        return(
-                            <div key={res.id}>
-                                <p>{res.name}</p>
-                                <button onClick={() => {returnBook(res.id)}}>Remove from favorites</button>*/

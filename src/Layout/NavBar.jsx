@@ -11,15 +11,17 @@ const NavBar = ({user, setUser}) => {
     };
 
     return(
-        <nav>
-            <NavLink to="/">Home</NavLink>
+        <nav className="NavBar">
+            <NavLink className="Nav1" to="/">Home</NavLink>
             
             {user.id ? (<span>
-            <NavLink to="/ProfilePage">Profile</NavLink>
-            <a href="" onClick={() => {logOut}}>Log out</a>
+            <NavLink className="Nav2"  to="/ProfilePage">Profile</NavLink>
+            <a className="Nav2" href="" onClick={() => {
+                
+                logOut()}}>Log out</a>
             </span>) : (<span>
-            <NavLink to="/Login">Login</NavLink>
-            <NavLink to="/Register">Register</NavLink>
+            <NavLink className="Nav2" to="/Login">Login</NavLink>
+            <NavLink className="Nav2" to="/Register">Register</NavLink>
             </span>
         )}
         </nav>

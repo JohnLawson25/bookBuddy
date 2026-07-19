@@ -49,6 +49,16 @@ const authenticate = async() => {
   }
 }
 
+useEffect(() => {
+  const checkToken = () => {
+    const loggedInToken = window.localStorage.getItem("token");
+    if(loggedInToken) {
+      authenticate();
+    }
+  }
+  checkToken();
+}, [user.id]);
+
   return (
     <div>
       <h1>
@@ -60,11 +70,11 @@ const authenticate = async() => {
       {/*Implement Routes*/}
       <Routes>
         <Route element={<Layout user={user} setUser={setUser} />} >
-        <Route index element={<BookList Books={Books} setSelectedBook={setSelectedBook}/>} />
+        <Route index element={<BookList Books={Books} setSelectedBook={setSelectedBook} userReservations={userReservations} setUserReservations={setUserReservations}/>} />
           <Route path="/Login" element={<Login authenticate={authenticate} />}   />
-          <Route path="/ProfilePage" element={<ProfilePage user={user} userReservations={userReservations} setUserReservations={setUserReservations} />} />
+          <Route path="/ProfilePage" element={<ProfilePage user={user} Books={Books} userReservations={userReservations} setUserReservations={setUserReservations} />} />
           <Route path="/Register" element={<Register  />} />  
-          <Route path="/BookList/:id" element={<SingleBook Books={Books}  />} />           
+          <Route path="/BookList/:id" element={<SingleBook user={user} Books={Books} selectedBook={selectedBook} userReservations={userReservations} setUserReservations={setUserReservations}  />} />           
           <Route path="*" element={<Error404 />} />
      
         </Route>

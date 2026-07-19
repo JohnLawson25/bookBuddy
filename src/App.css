@@ -10,4 +10,42 @@ body {
   margin-right: 10px;
 }
 
+
+.container{
+  display:grid;
+  grid-template-columns: 120px 400px ;
+  grid-template-rows: 1 fr 1fr 1fr;
+  margin-bottom: 20px;
+  box-shadow: 5px 10px 8px #888888;
+  
+}
+
+.bookimg{
+  grid-column: 1 / 2;
+  grid-row: 1 /4;
+  height: 100px;
+  width: 100px;
+  margin-right: 20px;
+}
+
+.title{
+  grid-column: 2 / 3;
+  grid-row: 1 /2;
+}
+
+.author{
+grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.description{
+grid-column: 2 / 3;
+  grid-row: 3 /4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* Change this number to show more/fewer lines */
+  overflow: hidden;
+}
+
+
 /* Add your own custom styles here */
